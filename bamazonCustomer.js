@@ -70,12 +70,12 @@ function shopping(){
             }
 
             if (answer.quantity <= chosenItem.stock_quantity){
-                var newAmount = chosenItem.stock_quantity-answer.quantity;
+                var newStock = chosenItem.stock_quantity-answer.quantity;
                 connection.query(
                     "UPDATE products SET ? WHERE ?",
                     [
                         {
-                            stock_quantity: newAmount
+                            stock_quantity: newStock
                         },
                         {
                             item_id: chosenItem.item_id
@@ -83,22 +83,42 @@ function shopping(){
                     ],
                     function(error){
                         if (err) throw err;
-                        console.log("Item successfully purchased");
+                        purchaseProduct();
                     }
                 );
             }
             else{
-                console.log("Sorry, this is an insufficient quantity");
-                startStore();
+                console.log("Sorry, this is an insufficient quantity of this item.");
+                followUp();
             }
-            var amount = answer.quantity;
-			var cost = chosenItem.price * amount;
-			console.log("Order processed\n=================\n" + 
-                    "Purchase: "   + chosenItem.product_name + 
-                    "\nQuantity: " + amount + 
-                    "\nPrice: $"   + cost + 
-                    "\n=================");
-            startStore();
+            function purchaseProduct(){
+                var amount = answer.quantity;
+                var cost = chosenItem.price * amount;
+                console.log("Item successfully purchased\n=================\n" + 
+                        "Purchase: "   + chosenItem.product_name + 
+                        "\nQuantity: " + amount + 
+                        "\nPrice: $"   + cost + 
+                        "\n=================");
+                followUp();
+            }
+            function followUp(){
+                inquirer
+                .prompt({
+                    name: "FollowingUp",
+                    type: "rawlist",
+                    message: "Would you like to choose another quantity or product?",
+                    choices: ["YES", "NO"]
+                })
+                .then(function(answer){
+                    if (answer.FollowingUp.toUpperCase() === "YES"){
+                        startStore();
+                    }
+                    else{
+                        connection.end();
+						return console.log("Thanks for shopping with Bamazon. Logging off.");
+                    }
+                });
+            }
         });
     });
 }
