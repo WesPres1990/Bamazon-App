@@ -33,21 +33,27 @@ function startStore(){
 }
 
 function shopping(){
-    connection.query("SELECT*FROM products", function(err, res){
+    connection.query("SELECT * FROM products", function(err, res){
         if (err) throw err;
         inquirer
         .prompt([
             {
                 name: "choice",
-                type: "rawlist",
+                type: "input",
                 choices: function(){
                     var choiceArray = [];
                     for (var i=0; i < res.length; i++){
-                        choiceArray.push(res[i].item_id);
+                        choiceArray.push(String(res[i].item_id));
                     }
                     return choiceArray;
                 },
-                message: "What is the Item ID of the product you would like to purchase?"
+                message: "What is the Item ID of the product you would like to purchase?",
+                validate: function(choice){
+                    if (isNaN(choice) === false){
+                        return true;
+                    }else
+                    return false;
+                }
             },
             {
                 name: "quantity",
@@ -58,17 +64,18 @@ function shopping(){
         .then(function(answer){
             var chosenItem;
             for (var i=0; i < res.length; i++){
-                if (res[i].item_id === answer.choice){
+                if (res[i].item_id === parseInt(answer.choice)){
                     chosenItem = res[i];
                 }
             }
 
-            if (chosenItem.stock_quantity < parseInt(answer.quantity)){
+            if (answer.quantity <= chosenItem.stock_quantity){
+                var newAmount = chosenItem.stock_quantity-answer.quantity;
                 connection.query(
                     "UPDATE products SET ? WHERE ?",
                     [
                         {
-                            stock_quantity: answer.quantity
+                            stock_quantity: newAmount
                         },
                         {
                             item_id: chosenItem.item_id
@@ -77,14 +84,21 @@ function shopping(){
                     function(error){
                         if (err) throw err;
                         console.log("Item successfully purchased");
-                        start();
                     }
                 );
             }
             else{
                 console.log("Sorry, this is an insufficient quantity");
-                start();
+                startStore();
             }
+            var amount = answer.quantity;
+			var cost = chosenItem.price * amount;
+			console.log("Order processed\n=================\n" + 
+                    "Purchase: "   + chosenItem.product_name + 
+                    "\nQuantity: " + amount + 
+                    "\nPrice: $"   + cost + 
+                    "\n=================");
+            startStore();
         });
     });
 }
