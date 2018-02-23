@@ -22,22 +22,22 @@ INSERT INTO products (product_name, department_name, price, stock_quantity)
 VALUES ("Georgia Bulldogs Commemorative Rose Bowl Shirt", "Clothing/Apparel", 19.99, 75);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("Whirlpool Washing Machine", "Home Appliances", 300.00, 100);
+VALUES ("Whirlpool Washing Machine", "Home Appliances", 300.00, 15);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("Tenor Trombone", "Music", 100.00, 40);
+VALUES ("Tenor Trombone", "Music", 100.00, 10);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("25-Sheet Capacity Shredder", "Office Supplies", 89.99, 50);
+VALUES ("25-Sheet Capacity Shredder", "Office Supplies", 89.99, 20);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("1996 Jeep Grand Cherokee", "Automobiles", 5000.00, 2);
+VALUES ("1996 Jeep Grand Cherokee", "Automobiles", 5000.00, 5);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("2-Man Tent", "Camping Supplies", 80.00, 60);
+VALUES ("2-Man Tent", "Camping Supplies", 80.00, 50);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("HP EliteBook (Refurbished)", "Computers", 245.00, 50);
+VALUES ("HP EliteBook (Refurbished)", "Computers", 245.00, 30);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("Justice League - First Season", "Television", 24.99, 110);
+VALUES ("Justice League - First Season", "Television", 24.99, 100);
