@@ -10,7 +10,8 @@ If the quantity/product is available, the user is shown what has been purchased 
 
 After the end of a successful transaction, the quantity of the products is updated to reflect the purchase.
 
-![Image of Bamazon App - 1](screenshots/Bamazaon1.png)
+![Image of Bamazon App - 1](/screenshots/Bamazaon1.png)
+![GitHub Logo](/images/logo.png)
 ![Image of Bamazon App - 2](screenshots/Bamazaon2.png)
 ![Image of Bamazon App - 3](screenshots/Bamazaon3.png)
 ![Image of Bamazon App - 4](screenshots/Bamazaon4.png)
