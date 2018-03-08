@@ -32,19 +32,19 @@ Text Editor - VS Studio
 
 ### Product Listing and Selection
 - - - -
-<img src="screenshots/Bamazon1.png"/>
+<img src="screenshots/Bamazon1.PNG"/>
 
 ### Selecting the Quantity
 - - - -
-<img src="screenshots/Bamazon2.png"/>
+<img src="screenshots/Bamazon2.PNG"/>
 
 ### Chosen Product and Further Shopping
 - - - -
-<img src="screenshots/Bamazon3.png"/>
+<img src="screenshots/Bamazon3.PNG"/>
 
 ### End of Transaction and App Closed
 - - - -
-<img src="screenshots/Bamazon4.png"/>
+<img src="screenshots/Bamazon4.PNG"/>
 
 
 ## Contributing
