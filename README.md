@@ -1,11 +1,11 @@
-# Bamazon-MySQL
+# Bamazon App
 
-An Amazon-like node-based application which is run from the terminal and uses a MySQL database. It allows the user to view products, make selections, and see what was purchased.
+An Amazon-like Node-based application which is run from the command line and uses a MySQL database. It allows the user to view products, make selections, and see what was purchased.
 
 
 ## How to Use
 
-User opens application by typing node bamazonCustomer.js in their terminal. A listing of ten products with categories, prices, and stock quantity is shown and the user is asked for the Item ID of the product he or she would like to purhcase. After selecting what is wanted, the user is then asked to provide a quantity of the product to purchase.
+User opens application by typing "node bamazonCustomer.js" in their terminal or command line. A listing of ten products with categories, prices, and stock quantity is shown and the user is asked for the Item ID of the product he or she would like to purhcase. After selecting what is wanted, the user is then asked to provide a quantity of the product to purchase.
 
 If the quantity/product is not available, the user is asked if he or she would like to enter another quantity or purchase another product. If the user decides to return shopping, the process starts again with the product listing, and if the user decides against this, the app is closed.
 
@@ -23,9 +23,15 @@ npm [mysql](https://www.npmjs.com/package/mysql)
 
 ### Technologies Used
 
-Languages - HTML5, Javascript, Node.js, MySQL
+Language - Javascript
 
-Text Editor - VS Studio
+Run-time system - Node.js
+
+Package manager - NPM
+
+Database - MySQL
+
+Text Editor - Visual Studio Code
 
 
 ## Preview
